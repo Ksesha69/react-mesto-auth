@@ -11,7 +11,7 @@ function App() {
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = useState(false);
   const [isImagePopupOpen, setImagePopupOpen] = useState(false);
   const [isConfirmationPopupOpen, setConfirmationPopupOpen] = useState(false);
-  const [selectedCard, setSelectedCard] = useState();
+  const [selectedCard, setSelectedCard] = useState({});
 
 
   function handleEditProfileClick() {
@@ -41,7 +41,7 @@ function App() {
     setAddPlacePopupOpen(false);
     setImagePopupOpen(false);
     setConfirmationPopupOpen(false);
-    setSelectedCard();
+    setSelectedCard({});
   }
 
   return (
