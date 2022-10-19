@@ -5,9 +5,9 @@ import profileButton from '../images/Vector.svg';
 import imageButton from '../images/plus.svg';
 
 function Main({ onEditAvatar, onEditProfile, onAddPlace, onHandleCardClick }) {
-    const [userName, setUserName] = useState();
-    const [userDescription, setUserDescription] = useState();
-    const [userAvatar, setUserAvatar] = useState();
+    const [userName, setUserName] = useState("Загрузка...");
+    const [userDescription, setUserDescription] = useState("Загрузка...");
+    const [userAvatar, setUserAvatar] = useState("Загрузка...");
     const [cards, setCards] = useState([]);
 
     useEffect(() => {
@@ -27,7 +27,7 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace, onHandleCardClick }) {
         .catch(err => {
             console.log(err);
         });
-    })
+    },[])
     
     return (
         <main>
