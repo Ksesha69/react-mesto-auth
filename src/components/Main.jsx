@@ -31,56 +31,56 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace, onHandleCardClick }) {
     
     return (
         <main>
-        <section className="profile">
-            <div className="profile__info">
-                <button 
-                className="profile__avatar-button"
-                onClick={onEditAvatar}
-                />
-                <img
-                    className="profile__avatar"
-                    alt={userName}
-                    src={userAvatar}
-                />
-                <div className="profile__text">
-                    <div>
-                        <h1 className="profile__name">{userName}</h1>
-                        <p className="profile__job">{userDescription}</p>
+            <section className="profile">
+                <div className="profile__info">
+                    <button 
+                    className="profile__avatar-button"
+                    onClick={onEditAvatar}
+                    />
+                    <img
+                        className="profile__avatar"
+                        alt={userName}
+                        src={userAvatar}
+                    />
+                    <div className="profile__text">
+                        <div>
+                            <h1 className="profile__name">{userName}</h1>
+                            <p className="profile__job">{userDescription}</p>
+                        </div>
+                        <button
+                        type="button" 
+                        className="button profile__edit-button"
+                        onClick={onEditProfile}
+                        >
+                            <img
+                                src={profileButton}
+                                alt="Изменить подпись"
+                            />
+                        </button>
                     </div>
-                    <button
-                    type="button" 
-                    className="button profile__edit-button"
-                    onClick={onEditProfile}
-                    >
-                        <img
-                            src={profileButton}
-                            alt="Изменить подпись"
-                        />
-                    </button>
                 </div>
-            </div>
-            <button 
-            type="button" 
-            className="profile__add-button"
-            onClick={onAddPlace}
-            >
-                <img
-                    className="profile__image-button"
-                    src={imageButton}
-                    alt="Добавить фото"
-                />
-            </button>
-        </section>
-        <section className="elements">
-            {cards.length > 0 &&
-                cards.map((card) => (
-                    <Card
-                    card={card}
-                    key={card._id}
-                    onCardClick={onHandleCardClick}
-                />
-            ))}
-        </section>
+                <button 
+                type="button" 
+                className="profile__add-button"
+                onClick={onAddPlace}
+                >
+                    <img
+                        className="profile__image-button"
+                        src={imageButton}
+                        alt="Добавить фото"
+                    />
+                </button>
+            </section>
+            <section className="elements">
+                {cards.length > 0 &&
+                    cards.map((card) => (
+                        <Card
+                        card={card}
+                        key={card._id}
+                        onCardClick={onHandleCardClick}
+                    />
+                ))}
+            </section>
         </main>
     )
 }
