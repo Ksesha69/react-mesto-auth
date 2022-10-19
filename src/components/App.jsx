@@ -26,9 +26,9 @@ function App() {
     setEditAvatarPopupOpen(true);
   }
 
-  function handleCardClick({card}) {
+  function handleCardClick({name, link}) {
+    setSelectedCard({name, link});
     setImagePopupOpen(true);
-    setSelectedCard({card});
   }
 
   function handleConfirmationClick() {

@@ -2,8 +2,9 @@ import React from "react";
 
 function ImagePopup ({ card, isOpen, onClose }) {
 
+
     return (
-        <div className={`popup ${isOpen ? "popup_opened" : false}`}>
+        <div className={`popup ${isOpen ? "popup_opened" : ''}`}>
         <div className="popup__container-photo">
         <button
             type="button"
@@ -12,11 +13,11 @@ function ImagePopup ({ card, isOpen, onClose }) {
         />
         
         <img 
-        src = {card} 
-        alt = {card}
+        src = {card.link} 
+        alt = {card.name}
         className="popup__image"
         />
-        <h2 className="popup__text">{card}</h2>
+        <h2 className="popup__text">{card.name}</h2>
         </div>
         </div>
     )

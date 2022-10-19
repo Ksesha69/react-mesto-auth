@@ -3,7 +3,7 @@ function Card({card, onCardClick}) {
 
     
     const handleClick = () => {
-        onCardClick({card});
+        onCardClick({name: card.name, link: card.link});
     } 
 
     return (
