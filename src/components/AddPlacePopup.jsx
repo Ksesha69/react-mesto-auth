@@ -6,20 +6,19 @@ function AddPlacePopup({
     onClose, 
     onAddPlace  
 }) {
-
-    const imageRef = useRef();
     const titleRef = useRef();
+    const imageRef = useRef();
 
     useEffect(() => {
-        imageRef.current.value = "";
         titleRef.current.value = "";
+        imageRef.current.value = "";
     }, [isOpen]);
 
-    function handleSubmit(event) {
-        event.preventDefault();
+    function handleSubmit(e) {
+        e.preventDefault();
         onAddPlace({
-            image: imageRef.current.value,
             title: titleRef.current.value,
+            link: imageRef.current.value,
         });
     } 
 
@@ -31,7 +30,7 @@ function AddPlacePopup({
         buttonText="Создать"
         isOpen={isOpen}
         onClose={onClose}
-        handleSubmit={handleSubmit}
+        onSubmit={handleSubmit}
         >
             <input
                 required=""
@@ -41,7 +40,7 @@ function AddPlacePopup({
                 name="input-photo"
                 className="popup__input popup__input_type_photo"
                 placeholder="Название"
-                ref={imageRef}
+                ref={titleRef}
             />
             <span id="picture-input-name-error" className="popup__input-error" />
             <input
@@ -51,7 +50,7 @@ function AddPlacePopup({
                 name="input-title"
                 className="popup__input popup__input_type_title"
                 placeholder="Ссылка на картинку"
-                ref={titleRef}
+                ref={imageRef}
             />
             <span id="picture-input-link-error" className="popup__input-error" />
         </PopupWithForm>

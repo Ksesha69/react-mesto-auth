@@ -20,7 +20,6 @@ function EditProfilePopup({
     }
 
     function handleSubmit(e) {
-        console.dir(description)
         e.preventDefault();
         onUpdateUser({
             name: name,

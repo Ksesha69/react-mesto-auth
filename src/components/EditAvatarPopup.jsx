@@ -23,6 +23,7 @@ function EditAvatarPopup({
     return (
         <PopupWithForm
             name="avatar"
+            className="popup__container_avatar"
             title="Обновить аватар"
             noValidate=""
             buttonText="Создать"
