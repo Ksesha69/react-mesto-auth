@@ -8,3 +8,7 @@
     height: 19px;
     margin: 20px 0 0 -40px;
 }
+
+.button__delete_hidden {
+    display: none;
+}

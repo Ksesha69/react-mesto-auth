@@ -32,37 +32,29 @@ class Api {
         .then(this._handleResponse);
     }
 
-    setUserInfo(name, about) {
+    setUserInfo(data) {
         return fetch(`${this.url}/users/me`, {
             method: "PATCH",
             headers: this.headers,
-            body: JSON.stringify({
-                name: `${name}`,
-                about: `${about}`,
-            })
+            body: JSON.stringify(data)
         })
         .then(this._handleResponse);
     }
 
-    addNewCard(name, url) {
+    addNewCard({name, link}) {
         return fetch(`${this.url}/cards`, {
             method: "POST",
             headers: this.headers,
-            body: JSON.stringify({
-                name: `${name}`,
-                link: `${url}`,
-            })
+            body: JSON.stringify({name, link})
         })
         .then(this._handleResponse);
     }
 
-    addNewAvatar(url) {
+    addNewAvatar(avatar) {
         return fetch(`${this.url}/users/me/avatar`, {
             method: "PATCH",
             headers: this.headers,
-            body: JSON.stringify({
-                avatar: `${url}`,
-            })
+            body: JSON.stringify(avatar)
         })
         .then(this._handleResponse);
     }
