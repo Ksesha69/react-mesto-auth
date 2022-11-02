@@ -10,10 +10,10 @@ function PopupWithForm({
 })
 {
     return (
-        <div className={`popup popup-${name}` + (isOpen && " popup_opened" )}>
+        <div className={`popup popup-${name} ` + (isOpen && "popup_opened" )}>
             <div className="popup__container">
                 <form
-                    name="form"
+                    name={`${name}-form`}
                     className={`popup__form popup-${name}_form`}
                     noValidate
                     onSubmit={onSubmit}

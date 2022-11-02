@@ -28,7 +28,7 @@ function EditAvatarPopup({
             noValidate=""
             buttonText="Создать"
             isOpen={isOpen}
-            onClick={onClose}
+            onClose={onClose}
             onSubmit={handleSubmit}
         >
         <input

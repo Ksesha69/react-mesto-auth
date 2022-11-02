@@ -43,6 +43,9 @@ function App() {
       setCurrentUser(usr);
       closeAllPopups();
   })
+    .catch(err => {
+      console.log(err);
+    })
   }
 
   function handleUpdateAvatar(avatar) {
@@ -72,7 +75,8 @@ function App() {
 
         api.toggleLike(card._id, isLiked).then((newCard) => {
             setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-        }).catch(err => {
+        })
+        .catch(err => {
           console.log(err);
       });
     } 
