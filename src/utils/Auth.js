@@ -4,7 +4,6 @@ class Auth {
     constructor(setting) {
         this.url = setting.baseUrl;
         this.headers = setting.headers;
-        console.dir(this.url)
     }
 
     _handleResponse = (res) => {

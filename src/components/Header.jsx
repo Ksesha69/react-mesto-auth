@@ -23,27 +23,38 @@ function Header({ userAuth, userEmail, handleLogout }) {
         }
     }, [currentLocation, userAuth]);
 
-
     return (
-<header className="header">
-    <img
-        className="header__logo"
-        alt="логотип"
-        src={logo}
-    />
-    <div className='header__auth'>
-    <h3 className='header__auth_email'></h3>
-    <button
-    type='button'
-    className='header__auth_link'>
-        <Link 
-        to={link}
-        className="signup__link"
-        >
-            {linkText}
-        </Link>
-    </button>
-    </div>
+    <header className="header">
+        <img
+            className="header__logo"
+            alt="логотип"
+            src={logo}
+        />
+        <div className='header__auth'>
+            {userEmail && (
+            <h3 className='header__auth_email'>{userEmail}</h3> 
+            )}
+            {userEmail ? (
+                <button type='button' className='header__auth_link' onClick={handleLogout}>
+                <Link
+                to = {'/sign-in'}
+                className="signup__link">
+                    Выйти
+                </Link>
+            </button>
+            ) : (
+                <button
+            type='button'
+            className='header__auth_link'>
+                <Link 
+                to={link}
+                className="signup__link"
+                >
+                    {linkText}
+                </Link>
+            </button>
+            )}
+        </div>
     </header>
     )
 }

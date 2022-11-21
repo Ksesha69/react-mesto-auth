@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes, Navigate, useNavigate } from 'react-router-dom';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import Header from './Header';
 import Footer from './Footer';
@@ -14,8 +14,6 @@ import ProtectedRoute from './ProtectedRoute';
 import Register from './Register';
 import InfoTooltip from './InfoTooltip';
 import auth from '../utils/Auth';
-import React from 'react';
-
 
 function App() {
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = useState(false);
@@ -117,6 +115,8 @@ function App() {
     setImagePopupOpen(true);
   }
 
+  const navigate = useNavigate();
+
   function handleTokenCheck(){
     if (localStorage.getItem('jwt')){
       const token = localStorage.getItem('jwt');
@@ -125,7 +125,6 @@ function App() {
     .then((res) => {
           setUserAuth(true);
           setUserEmail(res.data.email);
-          Route.history.push("/");
       })
       .catch(() => {
         setUserAuth(false);
@@ -140,13 +139,9 @@ function App() {
     e.preventDefault();
     auth.signUp({email, password})
     .then(() => {
+      navigate('/login');
       setRequestFailed(false);
       setInfoTooltipOpen(true);
-    })
-    .then((res) => {
-      if(res.statusCode !== 400){
-        Route.history.push('/login');
-      }
     })
     .catch(() => {
       setRequestFailed(true);
@@ -159,17 +154,21 @@ function App() {
     auth.signIn(email, password)
     .then((res) => {
       localStorage.setItem("jwt", res.token);
-    })
-    .then((res) => {
-      if(res.statusCode !== 400){
-        Route.history.push('/');
-      }
+      navigate('/');
+      setUserAuth(true);
     })
     .catch(() => {
       setRequestFailed(true);
       setInfoTooltipOpen(true);
     });
   }
+
+  const signOut = (() => {
+    localStorage.removeItem('jwt');
+    navigate('/sign-in');
+    setUserEmail ('');
+    setUserAuth(false);
+  })
 
   function closeAllPopups() {
     setEditProfilePopupOpen(false);
@@ -180,7 +179,6 @@ function App() {
     setSelectedCard({});
   }
 
-
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="App">
@@ -188,13 +186,15 @@ function App() {
         <div className="page">
           <Header
           userAuth={userAuth}
+          userEmail={userEmail}
+          handleLogout={signOut}
           />
           <Routes>
             <Route
             path="/"
             exact
             element={
-              <ProtectedRoute userAuth={userAuth}>
+              <ProtectedRoute loggedIn={userAuth}>
           <Main 
             onEditProfile = {handleEditProfileClick}
             onAddPlace = {handleAddPlaceClick}
@@ -211,18 +211,18 @@ function App() {
             path="*"
             exact
             element={
-              userAuth ? <Navigate to="/" /> : <Navigate to="/sign-up" />
+              userAuth ? <Navigate to="/" /> : <Navigate to="/login" />
             }
           />
           <Route 
           exact 
-          path="/register" 
+          path="/sign-up" 
           element={<Register onSubmit={handleRegistration} />
           } 
           />
           <Route 
           exact 
-          path="/login" 
+          path="/sign-in" 
           element={<Login onSubmit={handleLogin} />} />
 
           </Routes>
