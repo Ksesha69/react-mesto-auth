@@ -140,7 +140,7 @@ function App() {
     auth.signUp({email, password})
     .then(() => {
       navigate('/login');
-      setRequestFailed(false);
+      setRequestFailed(true);
       setInfoTooltipOpen(true);
     })
     .catch(() => {
@@ -165,8 +165,8 @@ function App() {
 
   const signOut = (() => {
     localStorage.removeItem('jwt');
-    navigate('/sign-in');
-    setUserEmail ('');
+    navigate('/login');
+    setUserEmail('');
     setUserAuth(false);
   })
 
@@ -185,7 +185,7 @@ function App() {
       <>
         <div className="page">
           <Header
-          userAuth={userAuth}
+          loggedIn={userAuth}
           userEmail={userEmail}
           handleLogout={signOut}
           />
@@ -216,13 +216,13 @@ function App() {
           />
           <Route 
           exact 
-          path="/sign-up" 
+          path="/register" 
           element={<Register onSubmit={handleRegistration} />
           } 
           />
           <Route 
           exact 
-          path="/sign-in" 
+          path="/login" 
           element={<Login onSubmit={handleLogin} />} />
 
           </Routes>
