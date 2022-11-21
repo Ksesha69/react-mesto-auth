@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/mesto-react-auth/static/css/main.3aaf2ce4.css",
+    "main.js": "/mesto-react-auth/static/js/main.1889c16f.js",
+    "static/js/787.5530211c.chunk.js": "/mesto-react-auth/static/js/787.5530211c.chunk.js",
+    "static/media/Inter-Medium.woff?v=3.19": "/mesto-react-auth/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
+    "static/media/Inter-Black.woff?v=3.19": "/mesto-react-auth/static/media/Inter-Black.c6938660eec019fefd68.woff",
+    "static/media/Inter-Regular.woff?v=3.19": "/mesto-react-auth/static/media/Inter-Regular.8c206db99195777c6769.woff",
+    "static/media/Inter-Medium.woff2?v=3.19": "/mesto-react-auth/static/media/Inter-Medium.293fd13dbca5a3e450ef.woff2",
+    "static/media/Inter-Black.woff2?v=3.19": "/mesto-react-auth/static/media/Inter-Black.15ca31c0a2a68f76d2d1.woff2",
+    "static/media/Inter-Regular.woff2?v=3.19": "/mesto-react-auth/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
+    "static/media/logo.svg": "/mesto-react-auth/static/media/logo.f4dd7725da75756eeec482ffcf86d0da.svg",
+    "static/media/like.svg": "/mesto-react-auth/static/media/like.1ad06e85f169668a1f36.svg",
+    "index.html": "/mesto-react-auth/index.html",
+    "static/media/err.svg": "/mesto-react-auth/static/media/err.7c6a020bec681932a2af92e04114a848.svg",
+    "static/media/Group.svg": "/mesto-react-auth/static/media/Group.823b0cf1b0b7e9cb7cad.svg",
+    "static/media/ok.svg": "/mesto-react-auth/static/media/ok.1b6082f862eac35e2514460237d96ecc.svg",
+    "static/media/Union.svg": "/mesto-react-auth/static/media/Union.35948469632d0421d697.svg",
+    "static/media/Vector.svg": "/mesto-react-auth/static/media/Vector.6c7bf05444b9793fdf6e73a2dd202e7e.svg",
+    "static/media/plus.svg": "/mesto-react-auth/static/media/plus.bed8c136e13907f5eefb86d62a5fe29e.svg",
+    "main.3aaf2ce4.css.map": "/mesto-react-auth/static/css/main.3aaf2ce4.css.map",
+    "main.1889c16f.js.map": "/mesto-react-auth/static/js/main.1889c16f.js.map",
+    "787.5530211c.chunk.js.map": "/mesto-react-auth/static/js/787.5530211c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3aaf2ce4.css",
+    "static/js/main.1889c16f.js"
+  ]
+}
