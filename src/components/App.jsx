@@ -142,12 +142,12 @@ function App() {
     .then((res) => {
       if (res) {
       navigate('/login');
-      setRequestFailed(true);
+      setRequestFailed(false);
       setInfoTooltipOpen(true);
       }
       else {
         setInfoTooltipOpen(true);
-        setRequestFailed(false);
+        setRequestFailed(true);
       }
     })
     .catch(() => {

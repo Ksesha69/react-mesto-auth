@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import { Link, Routes, Route, useLocation, Navigate } from "react-router-dom";
+import { Link, Routes, Route } from "react-router-dom";
 import logo from '../images/logo.svg';
 
 
@@ -18,16 +18,16 @@ function Header({ userEmail, handleLogout }) {
             <Routes>
             <Route path="/login"
             element={
-            <Navigate to="/register" className="header__link">
+            <Link to="/register" className="header__link">
                 Регистрация
-                </Navigate>
+                </Link>
             }
             />
             <Route path="/register"
             element={
-            <Navigate to="/login" className="header__link">
+            <Link to="/login" className="header__link">
                 Войти
-            </Navigate>
+            </Link>
             }
             />
             <Route exact path="/"
