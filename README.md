@@ -1,5 +1,5 @@
 # Для просмотра сайта, перейдите по ссылке:
-## https://ksesha69.github.io/login
+## https://ksesha69.github.io/react-mesto-auth/
 
 # Getting Started with Create React App
 
