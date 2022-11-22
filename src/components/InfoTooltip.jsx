@@ -9,6 +9,7 @@ function InfoTooltip({isOpen, onClose, requestFailed}) {
     const textErr = "Что-то пошло не так! Попробуйте ещё раз.";
 
     return (
+        
         <div className={`popup ${isOpen && "popup_opened" }`}>
             <div className="popup__container">
                 <button 
@@ -16,12 +17,12 @@ function InfoTooltip({isOpen, onClose, requestFailed}) {
                         className="button popup__close-button" 
                         onClick={onClose}
                 />
-                <img src={requestFailed ? ok : err} 
+                <img src={!requestFailed ? ok : err} 
                 alt=""
                 className="autorization__image"
                 />
                 <h2 className="autorization__title">
-                {requestFailed ? textOk : textErr}
+                {!requestFailed ? textOk : textErr}
                 </h2>
             </div>
         </div>

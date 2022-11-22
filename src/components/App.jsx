@@ -25,7 +25,7 @@ function App() {
   const [cards, setCards] = useState([]);
   const [userAuth, setUserAuth] = useState(false);
   const [isInfoTooltipOpen, setInfoTooltipOpen] = useState(false);
-  const [userEmail, setUserEmail] = useState(false);
+  const [userEmail, setUserEmail] = useState(null);
   const [requestFailed, setRequestFailed] = useState(false);
 
   useEffect(() => {
@@ -125,6 +125,7 @@ function App() {
     .then((res) => {
           setUserAuth(true);
           setUserEmail(res.data.email);
+          navigate("/")
       })
       .catch(() => {
         setUserAuth(false);
@@ -133,18 +134,24 @@ function App() {
 
     useEffect(() => {
       handleTokenCheck();
-    }, []);
+    }, [handleTokenCheck]);
 
   function handleRegistration(e, {email, password}) {
     e.preventDefault();
     auth.signUp({email, password})
-    .then(() => {
+    .then((res) => {
+      if (res) {
       navigate('/login');
       setRequestFailed(true);
       setInfoTooltipOpen(true);
+      }
+      else {
+        setInfoTooltipOpen(true);
+        setRequestFailed(false);
+      }
     })
     .catch(() => {
-      setRequestFailed(true);
+      setRequestFailed(false);
       setInfoTooltipOpen(true);
     });
   }
